@@ -2,7 +2,10 @@ package Hangman;
 
 public class Hangman {
     public static void main(String[] args) {
-        String word = "java"; 
+        String[] words = {"python", "java", "javascript", "kotlin"};
+        int randomIndex = (int) (Math.random() * words.length);
+        String word = words[randomIndex];  // Случайно выбранное слово
+
         System.out.println("HANGMAN");
         System.out.print("Guess the word: > ");
         String guess = System.console().readLine().toLowerCase();
