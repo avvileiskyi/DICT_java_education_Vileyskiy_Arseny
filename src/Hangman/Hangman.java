@@ -4,13 +4,14 @@ public class Hangman {
     public static void main(String[] args) {
         String[] words = {"python", "java", "javascript", "kotlin"};
         int randomIndex = (int) (Math.random() * words.length);
-        String word = words[randomIndex];  // Случайно выбранное слово
+        String word = words[randomIndex];
         char[] wordState = new char[word.length()];
         for (int i = 0; i < word.length(); i++) {
-            wordState[i] = '-';  // Инициализируем пустое слово
+            wordState[i] = '-';
         }
 
-        int attemptsLeft = 8;  // Количество попыток
+        int attemptsLeft = 8;
+        StringBuilder guessedLetters = new StringBuilder();
         while (attemptsLeft > 0) {
             System.out.println("Attempts left: " + attemptsLeft);
             System.out.print("Current word: ");
@@ -24,6 +25,18 @@ public class Hangman {
             }
 
             char guessedLetter = input.charAt(0);
+
+            if (!Character.isLowerCase(guessedLetter)) {
+                System.out.println("Please enter a lowercase English letter");
+                continue;
+            }
+
+            if (guessedLetters.toString().contains(String.valueOf(guessedLetter))) {
+                System.out.println("You've already guessed this letter");
+                continue;
+            }
+
+            guessedLetters.append(guessedLetter);
 
             boolean found = false;
             for (int i = 0; i < word.length(); i++) {
@@ -43,6 +56,7 @@ public class Hangman {
                 System.out.println("You survived!");
                 break;
             }
+
             if (attemptsLeft == 0) {
                 System.out.println("You lost!");
             }
