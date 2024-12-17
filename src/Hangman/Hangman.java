@@ -2,6 +2,23 @@ package Hangman;
 
 public class Hangman {
     public static void main(String[] args) {
+        while (true) {
+            System.out.println("HANGMAN");
+            System.out.print("Type \"play\" to play the game, \"exit\" to quit: ");
+            String choice = System.console().readLine().toLowerCase();
+
+            if (choice.equals("play")) {
+                playGame();
+            } else if (choice.equals("exit")) {
+                System.out.println("Thanks for playing!");
+                break;
+            } else {
+                System.out.println("Invalid input. Please type \"play\" or \"exit\".");
+            }
+        }
+    }
+
+    private static void playGame() {
         String[] words = {"python", "java", "javascript", "kotlin"};
         int randomIndex = (int) (Math.random() * words.length);
         String word = words[randomIndex];
@@ -45,6 +62,7 @@ public class Hangman {
                     found = true;
                 }
             }
+
             if (!found) {
                 attemptsLeft--;
                 System.out.println("That letter doesn't appear in the word");
