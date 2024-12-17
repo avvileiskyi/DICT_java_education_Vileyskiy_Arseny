@@ -6,8 +6,10 @@ public class Hangman {
         int randomIndex = (int) (Math.random() * words.length);
         String word = words[randomIndex];  // Случайно выбранное слово
 
+        // Показываем первые две буквы
+        String hint = word.substring(0, 2) + "-".repeat(word.length() - 2);
         System.out.println("HANGMAN");
-        System.out.print("Guess the word: > ");
+        System.out.print("Guess the word " + hint + ": > ");
         String guess = System.console().readLine().toLowerCase();
 
         if (guess.equals(word)) {
