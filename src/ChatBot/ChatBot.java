@@ -17,11 +17,20 @@ public class ChatBot {
 
 
         System.out.println("Now I will prove to you that I can count to any number you want!");
-
-        
         int userInp = 5;
         for (int i = 1; i <= userInp; i++) {
             System.out.println(i + "!");
+        }
+
+
+        System.out.println("Let's test your knowledge!");
+
+        
+        int answer = 2;
+        if (answer == 2) {
+            System.out.println("Correct! Goodbye, have a nice day!");
+        } else {
+            System.out.println("Please, try again.");
         }
     }
 }
