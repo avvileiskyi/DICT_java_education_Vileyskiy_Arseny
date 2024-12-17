@@ -45,7 +45,6 @@ public class Hangman {
                     found = true;
                 }
             }
-
             if (!found) {
                 attemptsLeft--;
                 System.out.println("That letter doesn't appear in the word");
